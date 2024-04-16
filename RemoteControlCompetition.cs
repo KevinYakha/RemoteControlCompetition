@@ -17,6 +17,11 @@ public class ProductionRemoteControlCar : IRemoteControlCar, IComparable<Product
     {
         DistanceTravelled += 10;
     }
+
+    int IComparable<ProductionRemoteControlCar>.CompareTo(ProductionRemoteControlCar other)
+    {
+        return NumberOfVictories - other.NumberOfVictories;
+    }
 }
 
 public class ExperimentalRemoteControlCar : IRemoteControlCar
@@ -39,6 +44,8 @@ public static class TestTrack
     public static List<ProductionRemoteControlCar> GetRankedCars(ProductionRemoteControlCar prc1,
         ProductionRemoteControlCar prc2)
     {
-        throw new NotImplementedException($"Please implement the (static) TestTrack.GetRankedCars() method");
+        List<ProductionRemoteControlCar> sorted = [prc1, prc2];
+        sorted.Sort();
+        return sorted;
     }
 }
