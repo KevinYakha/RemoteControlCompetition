@@ -33,7 +33,7 @@ public static class TestTrack
 {
     public static void Race(IRemoteControlCar car)
     {
-        throw new NotImplementedException($"Please implement the (static) TestTrack.Race() method");
+        car.Drive();
     }
 
     public static List<ProductionRemoteControlCar> GetRankedCars(ProductionRemoteControlCar prc1,
