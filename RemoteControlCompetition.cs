@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-// TODO implement the IRemoteControlCar interface
-
-public class ProductionRemoteControlCar
+public interface IRemoteControlCar
 {
-    public int DistanceTravelled { get; private set; }
+    public void Drive();
+
+    public int DistanceTravelled { get; set; }
+}
+
+public class ProductionRemoteControlCar : IRemoteControlCar, IComparable<ProductionRemoteControlCar>
+{
+    public int DistanceTravelled { get; set; }
     public int NumberOfVictories { get; set; }
 
     public void Drive()
@@ -14,9 +19,9 @@ public class ProductionRemoteControlCar
     }
 }
 
-public class ExperimentalRemoteControlCar
+public class ExperimentalRemoteControlCar : IRemoteControlCar
 {
-    public int DistanceTravelled { get; private set; }
+    public int DistanceTravelled { get; set; }
 
     public void Drive()
     {
